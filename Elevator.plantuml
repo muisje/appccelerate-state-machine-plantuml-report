@@ -1,0 +1,37 @@
+@startuml Elevator
+[*] --> OnFloor
+state Healthy {
+[H] -> Healthy : deep
+[*] -> OnFloor
+state OnFloor {
+[*] -> DoorClosed
+state DoorClosed {
+}
+state DoorOpen {
+}
+}
+OnFloor : entry / AnnounceFloor
+OnFloor : exit / Beep
+OnFloor : exit / Beep
+OnFloor --> DoorClosed : CloseDoor
+OnFloor --> DoorOpen : OpenDoor
+OnFloor --> MovingUp : GoUp [CheckOverload]
+OnFloor : GoUp / AnnounceOverload
+OnFloor --> MovingDown : GoDown [CheckOverload]
+OnFloor : GoDown / AnnounceOverload
+state Moving {
+[H] -> Moving : shallow
+[*] -> MovingUp
+state MovingUp {
+}
+state MovingDown {
+}
+}
+Moving --> OnFloor : Stop
+}
+Healthy --> Error : Error
+state Error {
+}
+Error --> Healthy : Reset
+Error : Error
+@enduml
