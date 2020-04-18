@@ -1,15 +1,10 @@
-using Appccelerate.StateMachine;
-using Appccelerate.StateMachine.Machine;
-using Appccelerate.StateMachine.Machine.Reports;
-
 using System;
 using System.IO;
 using System.Collections.Generic;
+using Appccelerate.StateMachine;
+using Appccelerate.StateMachine.Machine;
 using Appccelerate.StateMachine.Machine.States;
-// using Appccelerate.StateMachine.Machine.ActionHolders;
-// using Appccelerate.StateMachine.Extensions;
-// using Appccelerate.StateMachine.Infrastructure;
-// using Appccelerate.StateMachine.Syntax;
+
 
 namespace appccelerate_statemachine_plantuml_rapport
 {
@@ -32,16 +27,13 @@ namespace appccelerate_statemachine_plantuml_rapport
 
             textWriter.WriteLine("[*] --> " + initialStateId);
 
-
             foreach (var state in states)
             {
-
                 if (state.Level != 1)
                 {
                     continue;
                 }
                 WriteState(state);
-
             }
 
             textWriter.WriteLine("@enduml");
