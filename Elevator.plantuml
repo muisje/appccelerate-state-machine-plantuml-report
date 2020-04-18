@@ -1,7 +1,7 @@
 @startuml Elevator
 [*] --> OnFloor
 state Healthy {
-[H] -> Healthy : deep
+[H] -left> Healthy : deep
 [*] -> OnFloor
 state OnFloor {
 [*] -> DoorClosed
@@ -20,7 +20,7 @@ OnFloor : GoUp / AnnounceOverload
 OnFloor --> MovingDown : GoDown [CheckOverload]
 OnFloor : GoDown / AnnounceOverload
 state Moving {
-[H] -> Moving : shallow
+[H] -left> Moving : shallow
 [*] -> MovingUp
 state MovingUp {
 }

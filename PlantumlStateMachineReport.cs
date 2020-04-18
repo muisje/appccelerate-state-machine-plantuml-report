@@ -53,11 +53,11 @@ namespace appccelerate_statemachine_plantuml_rapport
             textWriter.WriteLine("state " + state.Id + " {");
             if (state.HistoryType == HistoryType.Shallow)
             {
-                textWriter.WriteLine("[H] -> " +  state.Id + " : shallow");
+                textWriter.WriteLine("[H] -left> " +  state.Id + " : shallow");
             }
             if (state.HistoryType == HistoryType.Deep)
             {
-                textWriter.WriteLine("[H] -> " + state.Id + " : deep");
+                textWriter.WriteLine("[H] -left> " + state.Id + " : deep");
             }
 
             if (state.InitialState != null)
